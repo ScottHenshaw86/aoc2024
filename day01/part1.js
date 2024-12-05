@@ -2,7 +2,7 @@
 console.time("execution time");
 const fs = require("fs");
 
-// import my puzzle input and format it into an array of numbers
+// import my puzzle input, split into lines, and split each line into left and right
 const input = fs
   .readFileSync("./input.txt", "latin1")
   .split(/[\n]/g)
