@@ -25,11 +25,11 @@ S 6'SMSMSASXSS',
 ]
 */
 
-function checkForXmas(currentRow, currentCol, rowPlus, colPlus) {
-  const first = input[currentRow][currentCol];
-  const second = input[currentRow + rowPlus]?.[currentCol + colPlus];
-  const third = input[currentRow + 2*rowPlus]?.[currentCol + 2*colPlus];
-  const fourth = input[currentRow + 3*rowPlus]?.[currentCol + 3*colPlus];
+function checkForXmas(row, col, rowPlus, colPlus) {
+  const first = input[row][col];
+  const second = input[row + rowPlus]?.[col + colPlus];
+  const third = input[row + 2*rowPlus]?.[col + 2*colPlus];
+  const fourth = input[row + 3*rowPlus]?.[col + 3*colPlus];
   
   const str = first + second + third + fourth;
   if (str === "XMAS" || str === "SAMX") {
@@ -43,7 +43,6 @@ let numXmas = 0;
 const colLength = input[0].length;
 for (let row = 0; row < input.length; row++) {
   for (let col = 0; col < colLength; col++) {
-    const current = input[row][col];
     // left to right & right to left ←→
     if (checkForXmas(row, col, 0, 1)) {
       numXmas++;
