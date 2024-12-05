@@ -1,3 +1,5 @@
+console.time("execution time");
+
 // Advent Of Code 2024 - Day #4: Part 1
 const fs = require("fs");
 
@@ -43,6 +45,8 @@ let numXmas = 0;
 const colLength = input[0].length;
 for (let row = 0; row < input.length; row++) {
   for (let col = 0; col < colLength; col++) {
+    if (!["X", "S"].includes(input[row][col])) continue; // unnecessary super minor optimization. only saves 3ms.
+
     // left to right & right to left ←→
     if (checkForXmas(row, col, 0, 1)) {
       numXmas++;
@@ -66,3 +70,4 @@ for (let row = 0; row < input.length; row++) {
 }
 
 console.log("numXmas:", numXmas);
+console.timeEnd("execution time");
